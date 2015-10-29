@@ -3,5 +3,112 @@
 @import "font-awesome";
 
 body {
-  background: #e2ebf3;
+  background: #101012;
 }
+
+li {
+	list-style: none;
+}
+
+.container {
+	margin: 20px auto;
+	width: 700px;
+	text-align: center;
+}
+
+.logo {
+	background: url(../favoritebandslogosmall.png);
+	width: 300px;
+	height: 60px;
+	margin-bottom: 10px;
+	display: inline-block;
+}
+
+.navbar {
+	.button-home {
+		background: url(../button-home.png);
+		width: 150px;
+		height: 56px;
+		margin-bottom: 10px;
+		display: inline-block;
+	}
+	.button-home:hover {
+		background: url(../hoverbutton-home.png);
+		width: 150px;
+		height: 56px;
+		margin-bottom: 10px;
+		display: inline-block;
+		border: 1px solid #43B940;
+		border-top: none;
+		border-right: none;
+		border-left: none;
+		cursor: pointer;
+	}
+	.button-newband {
+		background: url(../button-newband.png);
+		background-repeat: no-repeat;
+		background-position: center;
+		width: 170px;
+		height: 56px;
+		margin-bottom: 10px;
+		display: inline-block;
+	}
+	.button-newband:hover {
+		background: url(../hoverbutton-newband.png);
+		background-repeat: no-repeat;
+		background-position: center;
+		width: 170px;
+		height: 56px;
+		margin-bottom: 10px;
+		display: inline-block;
+		border: 1px solid #43B940;
+		border-top: none;
+		border-right: none;
+		border-left: none;
+		cursor: pointer;
+	}	
+	.button-about {
+		background: url(../button-about.png);
+		width: 150px;
+		height: 56px;
+		margin-bottom: 10px;
+		display: inline-block;
+	}
+	.button-about:hover {
+		background: url(../hoverbutton-about.png);
+		width: 150px;
+		height: 56px;
+		margin-bottom: 10px;
+		display: inline-block;
+		border: 1px solid #43B940;
+		border-top: none;
+		border-right: none;
+		border-left: none;
+		cursor: pointer;
+	}
+	.button-contact {
+		background: url(../button-contact.png);
+		width: 150px;
+		height: 56px;
+		margin-bottom: 10px;
+		display: inline-block;
+	}
+	.button-contact:hover {
+		background: url(../hoverbutton-contact.png);
+		width: 150px;
+		height: 56px;
+		margin-bottom: 10px;
+		display: inline-block;
+		border: 1px solid #43B940;
+		border-top: none;
+		border-right: none;
+		border-left: none;
+		cursor: pointer;
+	}
+}
+
+// .app {
+// 	border: 1px solid #282828;
+// 	border-radius: 5px;
+// 	background: #181818;
+// }
