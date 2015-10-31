@@ -1,15 +1,15 @@
 import Backbone from 'backbone';
+import Band from './band_model';
 import {APP_URL} from '../parse_data';
 
-export default Backbone.Model.extend({
+export default Backbone.Collection.extend({
 
-  urlRoot: APP_URL,
+  url: APP_URL,
+  
+  model: Band,
 
-  idAttribute: 'objectId',
-
-  templateData() {
-    let data = this.toJSON();
-    return data;
+  parse(data) {
+    return data.results;
   }
 
 });
