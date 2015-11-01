@@ -12,14 +12,18 @@ import {
   Home,
   Detail,
   AddBand,
-  Spinner
+  Spinner,
+  About,
+  Contact
 } from './views';
 
 export default Backbone.Router.extend({
 
   routes: {
-    ''                : 'redirectToHome',
-    'home'        : 'showHome',
+    ''           : 'redirectToHome',
+    'home'       : 'showHome',
+    'about'      : 'showAbout',
+    'contact'    : 'showContact',
     'detail/:id' : 'showDetail',
     'addBandProfile'  : 'newBandProfile',
   },
@@ -27,6 +31,26 @@ export default Backbone.Router.extend({
   initialize(appElement) {
     this.$el = appElement;
     this.collection = new BandCollection();
+
+    this.$el.on('click', '.button-home', (event) => {
+      let $div = $(event.currentTarget);
+      this.navigate(`home`, {trigger: true});
+    });
+
+    this.$el.on('click', '.button-newband', (event) => {
+      let $div = $(event.currentTarget);
+      this.navigate(`addBandProfile`, {trigger: true});
+    });
+
+    this.$el.on('click', '.button-about', (event) => {
+      let $div = $(event.currentTarget);
+      this.navigate(`about`, {trigger: true});
+    });
+
+    this.$el.on('click', '.button-contact', (event) => {
+      let $div = $(event.currentTarget);
+      this.navigate(`contact`, {trigger: true});
+    });
 
     this.$el.on('click', '.band-name-item', (event) => {
       let $li = $(event.currentTarget);
@@ -91,6 +115,16 @@ export default Backbone.Router.extend({
         )
       );
     });
+  },
+
+  showAbout() {
+    this.showSpinner();
+    this.$el.html(About());
+  },
+
+  showContact() {
+    this.showSpinner();
+    this.$el.html(Contact());
   },
 
   showDetail(id) {

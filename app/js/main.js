@@ -16,7 +16,7 @@ _jquery2['default'].ajaxSetup({
   }
 });
 
-},{"./parse_data":3,"jquery":14}],2:[function(require,module,exports){
+},{"./parse_data":3,"jquery":16}],2:[function(require,module,exports){
 'use strict';
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
@@ -59,7 +59,7 @@ new _router2['default']($app).start();
 //   }, 'slow');
 // });
 
-},{"./ajax_setup":1,"./router":7,"jquery":14,"moment":15,"underscore":16}],3:[function(require,module,exports){
+},{"./ajax_setup":1,"./router":7,"jquery":16,"moment":17,"underscore":18}],3:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, '__esModule', {
@@ -105,7 +105,7 @@ exports['default'] = _backbone2['default'].Collection.extend({
 });
 module.exports = exports['default'];
 
-},{"../parse_data":3,"./band_model":5,"backbone":13}],5:[function(require,module,exports){
+},{"../parse_data":3,"./band_model":5,"backbone":15}],5:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, '__esModule', {
@@ -134,7 +134,7 @@ exports['default'] = _backbone2['default'].Model.extend({
 });
 module.exports = exports['default'];
 
-},{"../parse_data":3,"backbone":13}],6:[function(require,module,exports){
+},{"../parse_data":3,"backbone":15}],6:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, '__esModule', {
@@ -183,6 +183,8 @@ exports['default'] = _backbone2['default'].Router.extend({
   routes: {
     '': 'redirectToHome',
     'home': 'showHome',
+    'about': 'showAbout',
+    'contact': 'showContact',
     'detail/:id': 'showDetail',
     'addBandProfile': 'newBandProfile'
   },
@@ -192,6 +194,26 @@ exports['default'] = _backbone2['default'].Router.extend({
 
     this.$el = appElement;
     this.collection = new _resources.BandCollection();
+
+    this.$el.on('click', '.button-home', function (event) {
+      var $div = (0, _jquery2['default'])(event.currentTarget);
+      _this.navigate('home', { trigger: true });
+    });
+
+    this.$el.on('click', '.button-newband', function (event) {
+      var $div = (0, _jquery2['default'])(event.currentTarget);
+      _this.navigate('addBandProfile', { trigger: true });
+    });
+
+    this.$el.on('click', '.button-about', function (event) {
+      var $div = (0, _jquery2['default'])(event.currentTarget);
+      _this.navigate('about', { trigger: true });
+    });
+
+    this.$el.on('click', '.button-contact', function (event) {
+      var $div = (0, _jquery2['default'])(event.currentTarget);
+      _this.navigate('contact', { trigger: true });
+    });
 
     this.$el.on('click', '.band-name-item', function (event) {
       var $li = (0, _jquery2['default'])(event.currentTarget);
@@ -256,6 +278,16 @@ exports['default'] = _backbone2['default'].Router.extend({
     });
   },
 
+  showAbout: function showAbout() {
+    this.showSpinner();
+    this.$el.html((0, _views.About)());
+  },
+
+  showContact: function showContact() {
+    this.showSpinner();
+    this.$el.html((0, _views.Contact)());
+  },
+
   showDetail: function showDetail(id) {
     var _this3 = this;
 
@@ -280,15 +312,15 @@ exports['default'] = _backbone2['default'].Router.extend({
 });
 module.exports = exports['default'];
 
-},{"./resources":6,"./views":11,"backbone":13,"jquery":14}],8:[function(require,module,exports){
+},{"./resources":6,"./views":13,"backbone":15,"jquery":16}],8:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-exports["default"] = function () {
-  return "\n    <div class='add-band'>\n      <h1 class=\"addheader\">Add Band</h1>\n      <form>\n        <label>Name:            <input type=\"text\" class=\"name\"></label>\n        <label>Image URL:         <input type=\"text\" class=\"image\"></label>\n        <label>Favorite Album:  <input type=\"text\" class=\"favAlbum\"></label>\n        <label>Why I like them: <textarea class=\"descript\"></textarea></label>\n      </form>\n      <button class=\"submit-band\">Add Band</button>\n    </div>\n  ";
+exports["default"] = function (data) {
+  return "\n    <div class=\"navbar\">\n      <div class=\"button-home\"></div>\n      <div class=\"button-newband\"></div>\n      <div class=\"button-about\"></div>\n      <div class=\"button-contact\"></div>\n    </div>\n    <div class=\"app-container\">\n      <h1>Coming Soon!</h1>\n    </div>\n  ";
 };
 
 module.exports = exports["default"];
@@ -300,13 +332,39 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-exports["default"] = function (data) {
-  return "\n    <div class=\"band\">\n      <h1 class=\"name\">" + data.Name + "</h1>\n      <img src=\"" + data.imageUrl + "\">\n      <p class=\"fav\">Favorite Album:</p>\n      <p class=\"favname\"><i class=\"fa fa-music\"></i> " + data.favoriteAlbum + "</p>\n      <p class=\"why\">Why I like them:</p>\n      <p class=\"desc\"><i class=\"fa fa-quote-right\"></i> " + data.Description + "</p>\n      <button class=\"back-button\" data-to=\"bandName\">\n        <i class=\"fa fa-arrow-left\"></i>\n      </button>\n    </div>\n  ";
+exports["default"] = function () {
+  return "\n    <div class=\"navbar\">\n      <div class=\"button-home\"></div>\n      <div class=\"button-newband\"></div>\n      <div class=\"button-about\"></div>\n      <div class=\"button-contact\"></div>\n    </div>\n    <div class=\"app-container\">\n      <div class='add-band'>\n        <h1 class=\"addheader\">Add Band</h1>\n        <form>\n          <label>Name:            <input type=\"text\" class=\"name\"></label>\n          <label>Image URL:         <input type=\"text\" class=\"image\"></label>\n          <label>Favorite Album:  <input type=\"text\" class=\"favAlbum\"></label>\n          <label>Why I like them: <textarea class=\"descript\"></textarea></label>\n        </form>\n        <button class=\"submit-band\">Add Band</button>\n      </div>\n    </div>\n  ";
 };
 
 module.exports = exports["default"];
 
 },{}],10:[function(require,module,exports){
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+exports["default"] = function (data) {
+  return "\n    <div class=\"navbar\">\n      <div class=\"button-home\"></div>\n      <div class=\"button-newband\"></div>\n      <div class=\"button-about\"></div>\n      <div class=\"button-contact\"></div>\n    </div>\n    <div class=\"app-container\">\n      <h1>Coming Soon!</h1>\n    </div>\n  ";
+};
+
+module.exports = exports["default"];
+
+},{}],11:[function(require,module,exports){
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+exports["default"] = function (data) {
+  return "\n    <div class=\"navbar\">\n      <div class=\"button-home\"></div>\n      <div class=\"button-newband\"></div>\n      <div class=\"button-about\"></div>\n      <div class=\"button-contact\"></div>\n    </div>\n    <div class=\"app-container\">\n      <div class=\"band\">\n        <h1 class=\"name\">" + data.Name + "</h1>\n        <img src=\"" + data.imageUrl + "\">\n        <p class=\"fav\">Favorite Album:</p>\n        <p class=\"favname\"><i class=\"fa fa-music\"></i> " + data.favoriteAlbum + "</p>\n        <p class=\"why\">Why I like them:</p>\n        <p class=\"desc\"><i class=\"fa fa-quote-right\"></i> " + data.Description + "</p>\n        <button class=\"back-button\" data-to=\"home\">\n          <i class=\"fa fa-arrow-left\"></i>\n        </button>\n      </div>\n    </div>\n  ";
+};
+
+module.exports = exports["default"];
+
+},{}],12:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, '__esModule', {
@@ -319,13 +377,13 @@ function processData(data) {
 }
 
 exports['default'] = function (data) {
-  return '\n    <div class="band-name">\n      ' + processData(data) + '\n    </div>\n  ';
+  return '\n    <div class="navbar">\n      <div class="button-home"></div>\n      <div class="button-newband"></div>\n      <div class="button-about"></div>\n      <div class="button-contact"></div>\n    </div>\n    <div class="app-container">\n      <div class="band-name">\n        ' + processData(data) + '\n      </div>\n    </div>\n  ';
 };
 
 // <button class="add-button"><i class="fa fa-plus"></i> New Band</button>
 module.exports = exports['default'];
 
-},{}],11:[function(require,module,exports){
+},{}],13:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, '__esModule', {
@@ -350,12 +408,22 @@ var _add = require('./add');
 
 var _add2 = _interopRequireDefault(_add);
 
+var _about = require('./about');
+
+var _about2 = _interopRequireDefault(_about);
+
+var _contact = require('./contact');
+
+var _contact2 = _interopRequireDefault(_contact);
+
 exports.Home = _home2['default'];
 exports.Detail = _detail2['default'];
 exports.Spinner = _spinner2['default'];
 exports.AddBand = _add2['default'];
+exports.About = _about2['default'];
+exports.Contact = _contact2['default'];
 
-},{"./add":8,"./detail":9,"./home":10,"./spinner":12}],12:[function(require,module,exports){
+},{"./about":8,"./add":9,"./contact":10,"./detail":11,"./home":12,"./spinner":14}],14:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -368,7 +436,7 @@ exports["default"] = function () {
 
 module.exports = exports["default"];
 
-},{}],13:[function(require,module,exports){
+},{}],15:[function(require,module,exports){
 (function (global){
 //     Backbone.js 1.2.3
 
@@ -2267,7 +2335,7 @@ module.exports = exports["default"];
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
 
-},{"jquery":14,"underscore":16}],14:[function(require,module,exports){
+},{"jquery":16,"underscore":18}],16:[function(require,module,exports){
 /*!
  * jQuery JavaScript Library v2.1.4
  * http://jquery.com/
@@ -11479,7 +11547,7 @@ return jQuery;
 
 }));
 
-},{}],15:[function(require,module,exports){
+},{}],17:[function(require,module,exports){
 //! moment.js
 //! version : 2.10.6
 //! authors : Tim Wood, Iskren Chernev, Moment.js contributors
@@ -14675,7 +14743,7 @@ return jQuery;
     return _moment;
 
 }));
-},{}],16:[function(require,module,exports){
+},{}],18:[function(require,module,exports){
 //     Underscore.js 1.8.3
 //     http://underscorejs.org
 //     (c) 2009-2015 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
