@@ -42,7 +42,22 @@ var _router2 = _interopRequireDefault(_router);
 var $app = (0, _jquery2['default'])('.app');
 new _router2['default']($app).start();
 
-console.log('Hello, World');
+// $(".image").mouseover(function() {
+//   $(this).removeClass("band-image").addClass("band-image-scroll");
+//   var maxscroll = $(this).width();
+//   var speed = maxscroll * 15;
+//   $(this).animate({
+//     scrollLeft: maxscroll
+//   }, speed, "linear");
+// });
+
+// $(".image").mouseout(function() {
+//   $(this).stop();
+//   $(this).removeClass("band-image-scroll").addClass("band-image");
+//   $(this).animate({
+//     scrollLeft: 0
+//   }, 'slow');
+// });
 
 },{"./ajax_setup":1,"./router":7,"jquery":14,"moment":15,"underscore":16}],3:[function(require,module,exports){
 'use strict';
@@ -299,14 +314,15 @@ Object.defineProperty(exports, '__esModule', {
 });
 function processData(data) {
   return data.map(function (item) {
-    return '\n      <li class="band-name-item" data-band-id=\'' + item.objectId + '\'>\n        <span>' + item.Name + '</span>\n      </li>\n    ';
+    return '\n      <div class="band-name-item" data-band-id=\'' + item.objectId + '\'>\n        <div class="image band-image">\n          <img src="' + item.imageUrl + '">\n        </div>\n        <p>' + item.Name + '</p>\n      </div>\n    ';
   }).join('');
 }
 
 exports['default'] = function (data) {
-  return '\n    <div class="band-name">\n      <ul>' + processData(data) + '</ul>\n    </div>\n    <button class="add-button"><i class="fa fa-plus"></i> New Band</button>\n  ';
+  return '\n    <div class="band-name">\n      ' + processData(data) + '\n    </div>\n  ';
 };
 
+// <button class="add-button"><i class="fa fa-plus"></i> New Band</button>
 module.exports = exports['default'];
 
 },{}],11:[function(require,module,exports){

@@ -1,9 +1,12 @@
 function processData(data) {
   return data.map(function(item){
     return `
-      <li class="band-name-item" data-band-id='${item.objectId}'>
-        <span>${item.Name}</span>
-      </li>
+      <div class="band-name-item" data-band-id='${item.objectId}'>
+        <div class="image band-image">
+          <img src="${item.imageUrl}">
+        </div>
+        <p>${item.Name}</p>
+      </div>
     `;
   }).join('');
 }
@@ -11,8 +14,10 @@ function processData(data) {
 export default function(data) {
   return `
     <div class="band-name">
-      <ul>${processData(data)}</ul>
+      ${processData(data)}
     </div>
-    <button class="add-button"><i class="fa fa-plus"></i> New Band</button>
   `;
 }
+
+
+    // <button class="add-button"><i class="fa fa-plus"></i> New Band</button>

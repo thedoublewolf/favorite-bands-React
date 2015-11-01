@@ -2032,7 +2032,7 @@ li {
 
 .container {
   margin: 20px auto;
-  width: 700px;
+  /*	width: 700px;*/
   text-align: center; }
 
 .logo {
@@ -2125,28 +2125,64 @@ li {
 .app {
   border: 1px solid #282828;
   border-radius: 5px;
-  background: #181818; }
+  background: #181818;
+  max-width: 1000px;
+  min-width: 700px;
+  margin: 0 auto; }
 
-.band-name ul {
+.band-name {
+  max-width: 100%;
+  margin-left: auto;
+  margin-right: auto;
   margin-left: 20px;
+  margin-right: 20px;
   padding-left: 0px; }
-  .band-name ul li {
+  .band-name::after {
+    clear: both;
+    content: "";
+    display: table; }
+  .band-name .band-name-item {
+    float: left;
+    display: block;
+    margin-right: 2.35765%;
+    width: 31.76157%;
     padding-top: 10px;
     padding-bottom: 10px;
-    padding-left: 10px;
     border: 1px solid #282828;
     border-top: none;
     border-left: none;
     border-right: none;
-    width: 650px;
-    color: #A0A0A0; }
-  .band-name ul li:hover {
+    color: #A0A0A0;
+    height: 275px;
+    min-width: 200px; }
+    .band-name .band-name-item:last-child {
+      margin-right: 0; }
+    .band-name .band-name-item:nth-child(3n) {
+      margin-right: 0; }
+    .band-name .band-name-item:nth-child(3n+1) {
+      clear: left; }
+    .band-name .band-name-item .band-image {
+      min-width: 200px;
+      height: 200px;
+      margin: 10px auto;
+      overflow: hidden;
+      /*			.band-image-scroll {
+				width: 200px;
+				height: 200px;
+				margin: 10px auto;
+				overflow: scroll;
+			}*/ }
+      .band-name .band-name-item .band-image img {
+        width: 300px;
+        min-height: 200px; }
+  .band-name .band-name-item:hover {
     color: white;
     background: #282828;
     cursor: pointer;
     border-color: #43B940; }
 
-.band-name span {
+p {
+  margin: 0;
   font-family: 'Abel', sans-serif;
   font-size: 1.2em; }
 
@@ -2195,7 +2231,6 @@ li {
   font-family: 'Abel', sans-serif;
   font-size: 1em;
   color: #43B940;
-  margin-left: 20px;
   margin-bottom: 0px; }
 
 .band .favname {
@@ -2203,27 +2238,23 @@ li {
   font-style: italic;
   font-size: 1.2em;
   color: #A0A0A0;
-  margin-left: 30px;
   margin-top: 5px; }
 
 .band .why {
   font-family: 'Abel', sans-serif;
   font-size: 1em;
   color: #43B940;
-  margin-left: 20px;
   margin-bottom: 0px; }
 
 .band .desc {
   font-family: 'Abel', sans-serif;
   font-size: 1.2em;
   color: #A0A0A0;
-  margin-left: 30px;
-  margin-top: 5px;
-  width: 600px; }
+  width: 60%;
+  margin: 5px auto; }
 
 .band img {
-  max-width: 600px;
-  margin-left: 20px; }
+  max-width: 600px; }
 
 .add-band .addheader {
   color: white;
