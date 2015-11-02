@@ -2,8 +2,6 @@ import React from 'react';
 
 export default React.createClass({
 
-
-
   processItem(item) {
 
     let onBandSelect = this.props.onBandSelect;

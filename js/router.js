@@ -20,51 +20,6 @@ import {
 
 import ReactView from './react_views/home';
 
-// export default Backbone.Router.extend({
-
-//   routes: {
-//     ''           : 'redirectToHome',
-//     'home'       : 'showHome',
-//     'about'      : 'showAbout',
-//     'contact'    : 'showContact',
-//     'detail/:id' : 'showDetail',
-//     'addBandProfile'  : 'newBandProfile'
-//   },
-
-//   initialize(appElement) {
-//     this.el = appElement;
-//     this.collection = newBandCollection();
-//   },
-
-//   redirectToHome() {
-//     this.navigate('home', {
-//       replace: true,
-//       trigger: true
-//     });
-//   },
-
-//   start() {
-//     Backbone.history.start();
-//     return this;
-//   },
-
-//   render(component) {
-//     ReactDom.render(component, this.el);
-//   },
-
-//   showSpinner() {
-//     this.render(<SpinnerComponent/>);
-//   },
-
-//   showHome() {
-//     this.render(
-      
-//     );
-//   },
-
-// });
-
-
 export default Backbone.Router.extend({
 
   routes: {
