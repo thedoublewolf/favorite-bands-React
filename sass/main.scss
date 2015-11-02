@@ -211,6 +211,22 @@ li {
 		color: white;
 		border: 1px solid white;
 	}
+	.edit-button {
+		background: #131313;
+		border: 1px solid #A0A0A0;
+		border-radius: 15px;
+		margin-left: 20px;
+		margin-bottom: 20px;
+		text-align: center;
+		width: 100px;
+		padding: 5px;
+		font-family: 'Abel', sans-serif;
+		color: #A0A0A0;
+	}
+	.edit-button:hover {
+		color: white;
+		border: 1px solid white;
+	}
 	.name {
 		color: white;
 		font-family: 'Abel', sans-serif;
@@ -256,13 +272,11 @@ li {
 		color: white;
 		font-family: 'Abel', sans-serif;
 		font-weight: 300;
-		margin-left: 20px;
 	}
 	label {
 		color: #A0A0A0;
 		font-family: 'Abel', sans-serif;
 		font-size: 1em;
-		margin-left: 20px;
 		margin-bottom: 0px;
 		input {
 			display: block;
@@ -270,7 +284,6 @@ li {
 			border: 1px solid #A0A0A0;
 			border-radius: 5px;
 			padding: 5px;
-			margin-left: 20px;
 			margin-bottom: 20px;
 			margin: 0 auto;
 			width: 300px;
@@ -305,6 +318,62 @@ li {
 		color: #A0A0A0;
 	}
 	.submit-band:hover {
+		color: white;
+		border: 1px solid white;
+	}
+}
+
+.edit-band {
+	.editheader {
+		color: white;
+		font-family: 'Abel', sans-serif;
+		font-weight: 300;
+	}
+	label {
+		color: #A0A0A0;
+		font-family: 'Abel', sans-serif;
+		font-size: 1em;
+		margin-bottom: 0px;
+		input {
+			display: block;
+			background: #131313;
+			border: 1px solid #A0A0A0;
+			border-radius: 5px;
+			padding: 5px;
+			margin-bottom: 20px;
+			margin: 0 auto;
+			width: 300px;
+			color: #A0A0A0;
+			font-family: 'Abel', sans-serif;
+		}
+		.descript {
+			display: block;
+			background: #131313;
+			border: 1px solid #A0A0A0;
+			border-radius: 5px;
+			padding: 5px;
+			margin-left: 20px;
+			margin-bottom: 20px;
+			margin: 0 auto;
+			width: 300px;
+			height: 200px;
+			color: #A0A0A0;
+			font-family: 'Abel', sans-serif;
+		}
+	}
+	.resubmit-band {
+		background: #131313;
+		border: 1px solid #A0A0A0;
+		border-radius: 15px;
+		margin-left: 20px;
+		margin-bottom: 20px;
+		text-align: center;
+		width: 100px;
+		padding: 5px;
+		font-family: 'Abel', sans-serif;
+		color: #A0A0A0;
+	}
+	.resubmit-band:hover {
 		color: white;
 		border: 1px solid white;
 	}

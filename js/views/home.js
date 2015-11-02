@@ -1,3 +1,14 @@
+// import React from 'react';
+
+// export default React.createClass({
+
+//   render: function() {
+//     return <div>
+//       { this.
+
+//       }
+//   }
+
 function processData(data) {
   return data.map(function(item){
     return `
@@ -26,6 +37,3 @@ export default function(data) {
     </div>
   `;
 }
-
-
-    // <button class="add-button"><i class="fa fa-plus"></i> New Band</button>

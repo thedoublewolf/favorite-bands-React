@@ -1,4 +1,4 @@
-export default function(data) {
+export default function(data, EditView) {
   return `
     <div class="navbar">
       <div class="button-home"></div>
@@ -16,6 +16,9 @@ export default function(data) {
         <p class="desc"><i class="fa fa-quote-right"></i> ${data.Description}</p>
         <button class="back-button" data-to="home">
           <i class="fa fa-arrow-left"></i>
+        </button>
+        <button class="edit-button" data-to="edit">
+          Edit Band
         </button>
       </div>
     </div>

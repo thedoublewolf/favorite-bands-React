@@ -14,8 +14,54 @@ import {
   AddBand,
   Spinner,
   About,
-  Contact
+  Contact,
+  Edit
 } from './views';
+
+// export default Backbone.Router.extend({
+
+//   routes: {
+//     ''           : 'redirectToHome',
+//     'home'       : 'showHome',
+//     'about'      : 'showAbout',
+//     'contact'    : 'showContact',
+//     'detail/:id' : 'showDetail',
+//     'addBandProfile'  : 'newBandProfile'
+//   },
+
+//   initialize(appElement) {
+//     this.el = appElement;
+//     this.collection = newBandCollection();
+//   },
+
+//   redirectToHome() {
+//     this.navigate('home', {
+//       replace: true,
+//       trigger: true
+//     });
+//   },
+
+//   start() {
+//     Backbone.history.start();
+//     return this;
+//   },
+
+//   render(component) {
+//     ReactDom.render(component, this.el);
+//   },
+
+//   showSpinner() {
+//     this.render(<SpinnerComponent/>);
+//   },
+
+//   showHome() {
+//     this.render(
+      
+//     );
+//   },
+
+// });
+
 
 export default Backbone.Router.extend({
 
@@ -26,6 +72,8 @@ export default Backbone.Router.extend({
     'contact'    : 'showContact',
     'detail/:id' : 'showDetail',
     'addBandProfile'  : 'newBandProfile',
+    'edit'       : 'editBandProfile',
+    // 'edit/:id'       : 'editBandProfile',
   },
 
   initialize(appElement) {
@@ -53,8 +101,8 @@ export default Backbone.Router.extend({
     });
 
     this.$el.on('click', '.band-name-item', (event) => {
-      let $li = $(event.currentTarget);
-      let bandId = $li.data('band-id');
+      let $div = $(event.currentTarget);
+      let bandId = $div.data('band-id');
       this.navigate(`detail/${bandId}`, {trigger: true});
     });
 
@@ -63,6 +111,34 @@ export default Backbone.Router.extend({
       let route = $button.data('to');
       this.navigate(route, {trigger: true});
     });
+
+    this.$el.on('click', '.edit-button', (event) => {
+      let $button = $(event.currentTarget);
+      let route = $button.data('to');
+      this.navigate(`edit`, {trigger: true});
+      // let bandId = $button.data('band-id');
+      // this.navigate(`edit/$bandId`, {trigger: true});
+    });
+
+    // this.$el.on('click', '.resubmit-band', (event) => {
+    //   let name     = $(this.$el).find('.name').val();
+    //   let image    = $(this.$el).find('.image').val();
+    //   let favAlbum = $(this.$el).find('.favAlbum').val();
+    //   let descript = $(this.$el).find('.descript').val();
+
+    //   let updatedBand = new BandModel({
+    //     Name: name,
+    //     imageUrl: image,
+    //     favoriteAlbum: favAlbum,
+    //     Description: descript
+    //   });
+
+    //   this.collection.update(updatedBand);
+    //   newBand.save().then(() => {
+    //     alert('Band updated.  Awesome Taste!');
+    //     this.navigate(`bandName`, {trigger: true});
+    //   });
+    // });
 
     this.$el.on('click', '.add-button', (event) => {
       let $div = $(event.currentTarget);
@@ -141,9 +217,28 @@ export default Backbone.Router.extend({
     }
   },
 
+  // editBandProfile(id) {
+  //   let editBand = this.collection.get(id);
+
+  //   if (editBand) {
+  //     this.$el.html( Detail(editBand.templateData()) );
+  //   } else {
+  //     this.showSpinner();
+  //     band = this.collection.get({objectId: id});
+  //     band.fetch().then(() => {
+  //       this.$el.html( Detail( band.templateData()) );
+  //     });
+  //   }
+  // },
+
+  editBandProfile() {
+    this.showSpinner();
+    this.$el.html(Edit());
+  },
+
   newBandProfile() {
     this.showSpinner();
     this.$el.html(AddBand());
-  }
+  },
 
 });

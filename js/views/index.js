@@ -4,6 +4,7 @@ import Spinner from './spinner';
 import AddBand from './add';
 import About from './about';
 import Contact from './contact';
+import Edit from './edit';
 
 export {
   Home,
@@ -11,5 +12,6 @@ export {
   Spinner,
   AddBand,
   About,
-  Contact
+  Contact,
+  Edit
 };

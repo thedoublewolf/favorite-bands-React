@@ -2230,6 +2230,22 @@ p {
   color: white;
   border: 1px solid white; }
 
+.band .edit-button {
+  background: #131313;
+  border: 1px solid #A0A0A0;
+  border-radius: 15px;
+  margin-left: 20px;
+  margin-bottom: 20px;
+  text-align: center;
+  width: 100px;
+  padding: 5px;
+  font-family: 'Abel', sans-serif;
+  color: #A0A0A0; }
+
+.band .edit-button:hover {
+  color: white;
+  border: 1px solid white; }
+
 .band .name {
   color: white;
   font-family: 'Abel', sans-serif;
@@ -2272,14 +2288,12 @@ p {
 .add-band .addheader {
   color: white;
   font-family: 'Abel', sans-serif;
-  font-weight: 300;
-  margin-left: 20px; }
+  font-weight: 300; }
 
 .add-band label {
   color: #A0A0A0;
   font-family: 'Abel', sans-serif;
   font-size: 1em;
-  margin-left: 20px;
   margin-bottom: 0px; }
   .add-band label input {
     display: block;
@@ -2287,7 +2301,6 @@ p {
     border: 1px solid #A0A0A0;
     border-radius: 5px;
     padding: 5px;
-    margin-left: 20px;
     margin-bottom: 20px;
     margin: 0 auto;
     width: 300px;
@@ -2320,6 +2333,57 @@ p {
   color: #A0A0A0; }
 
 .add-band .submit-band:hover {
+  color: white;
+  border: 1px solid white; }
+
+.edit-band .editheader {
+  color: white;
+  font-family: 'Abel', sans-serif;
+  font-weight: 300; }
+
+.edit-band label {
+  color: #A0A0A0;
+  font-family: 'Abel', sans-serif;
+  font-size: 1em;
+  margin-bottom: 0px; }
+  .edit-band label input {
+    display: block;
+    background: #131313;
+    border: 1px solid #A0A0A0;
+    border-radius: 5px;
+    padding: 5px;
+    margin-bottom: 20px;
+    margin: 0 auto;
+    width: 300px;
+    color: #A0A0A0;
+    font-family: 'Abel', sans-serif; }
+  .edit-band label .descript {
+    display: block;
+    background: #131313;
+    border: 1px solid #A0A0A0;
+    border-radius: 5px;
+    padding: 5px;
+    margin-left: 20px;
+    margin-bottom: 20px;
+    margin: 0 auto;
+    width: 300px;
+    height: 200px;
+    color: #A0A0A0;
+    font-family: 'Abel', sans-serif; }
+
+.edit-band .resubmit-band {
+  background: #131313;
+  border: 1px solid #A0A0A0;
+  border-radius: 15px;
+  margin-left: 20px;
+  margin-bottom: 20px;
+  text-align: center;
+  width: 100px;
+  padding: 5px;
+  font-family: 'Abel', sans-serif;
+  color: #A0A0A0; }
+
+.edit-band .resubmit-band:hover {
   color: white;
   border: 1px solid white; }
 
