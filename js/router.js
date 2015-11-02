@@ -1,7 +1,7 @@
 import Backbone from 'backbone';
 import $ from 'jquery';
-// import $ ReactDom from 'react-dom';
-// import $ React from 'react';
+import ReactDom from 'react-dom';
+import React from 'react';
 
 import {
   BandModel,
@@ -15,8 +15,10 @@ import {
   Spinner,
   About,
   Contact,
-  Edit
+  Edit,
 } from './views';
+
+import ReactView from './react_views/home';
 
 // export default Backbone.Router.extend({
 
@@ -100,11 +102,11 @@ export default Backbone.Router.extend({
       this.navigate(`contact`, {trigger: true});
     });
 
-    this.$el.on('click', '.band-name-item', (event) => {
-      let $div = $(event.currentTarget);
-      let bandId = $div.data('band-id');
-      this.navigate(`detail/${bandId}`, {trigger: true});
-    });
+    // this.$el.on('click', '.band-name-item', (event) => {
+    //   let $div = $(event.currentTarget);
+    //   let bandId = $div.data('band-id');
+    //   this.navigate(`detail/${bandId}`, {trigger: true});
+    // });
 
     this.$el.on('click', '.back-button', (event) => {
       let $button = $(event.currentTarget);
@@ -185,11 +187,26 @@ export default Backbone.Router.extend({
   showHome() {
     this.showSpinner();
     this.collection.fetch().then(() => {
-      this.$el.html(
-        Home(
-          this.collection.toJSON()
-        )
-      );
+      // this.$el.html(
+      //   Home(
+      //     this.collection.toJSON()
+      //   )
+      // );
+
+    // this.$el.on('click', '.band-name-item', (event) => {
+    //   let $div = $(event.currentTarget);
+    //   let bandId = $div.data('band-id');
+    //   this.navigate(`detail/${bandId}`, {trigger: true});
+    // });
+
+      let nativeElement = this.$el[0];
+
+      ReactDom.render(
+        <ReactView 
+          onBandSelect={id => this.navigate(`detail/${id}`, {trigger: true})} 
+          data={this.collection.toJSON()}/>,
+        nativeElement
+      )
     });
   },
 
