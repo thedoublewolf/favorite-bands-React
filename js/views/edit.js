@@ -10,10 +10,10 @@ export default function(item) {
       <div class='add-band'>
         <h1 class="addheader">Add Band</h1>
         <form>
-            <label>Name:            <input type="text" class="name" value="${item.Name}"></label>
-            <label>Image URL:         <input type="text" class="image" value="${item.imageUrl}"></label>
-            <label>Favorite Album:  <input type="text" class="favAlbum" value="${item.favoriteAlbum}"></label>
-            <label>Why I like them: <textarea class="descript"></textarea value="$item.Description"></label>
+          <label>Name:            <input type="text" class="name" value="${item.Name}"></label>
+          <label>Image URL:         <input type="text" class="image" value="${item.imageUrl}"></label>
+          <label>Favorite Album:  <input type="text" class="favAlbum" value="${item.favoriteAlbum}"></label>
+          <label>Why I like them: <textarea class="descript"></textarea value="$item.Description"></label>
         </form>
         <button class="submit-band">Add Band</button>
       </div>

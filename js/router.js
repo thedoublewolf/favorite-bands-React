@@ -18,7 +18,8 @@ import {
   Edit,
 } from './views';
 
-import ReactView from './react_views/home';
+import ReactDetail from './react_views/detail';
+import ReactHome from './react_views/home';
 
 export default Backbone.Router.extend({
 
@@ -29,7 +30,7 @@ export default Backbone.Router.extend({
     'contact'    : 'showContact',
     'detail/:id' : 'showDetail',
     'addBandProfile'  : 'newBandProfile',
-    'edit'       : 'editBandProfile',
+    // 'edit'       : 'editBandProfile',
     // 'edit/:id'       : 'editBandProfile',
   },
 
@@ -56,45 +57,17 @@ export default Backbone.Router.extend({
       let $div = $(event.currentTarget);
       this.navigate(`contact`, {trigger: true});
     });
-
+    // OLD CODE TRANSLATED TO REACT:
     // this.$el.on('click', '.band-name-item', (event) => {
     //   let $div = $(event.currentTarget);
     //   let bandId = $div.data('band-id');
     //   this.navigate(`detail/${bandId}`, {trigger: true});
     // });
 
-    this.$el.on('click', '.back-button', (event) => {
-      let $button = $(event.currentTarget);
-      let route = $button.data('to');
-      this.navigate(route, {trigger: true});
-    });
-
-    this.$el.on('click', '.edit-button', (event) => {
-      let $button = $(event.currentTarget);
-      let route = $button.data('to');
-      this.navigate(`edit`, {trigger: true});
-      // let bandId = $button.data('band-id');
-      // this.navigate(`edit/$bandId`, {trigger: true});
-    });
-
-    // this.$el.on('click', '.resubmit-band', (event) => {
-    //   let name     = $(this.$el).find('.name').val();
-    //   let image    = $(this.$el).find('.image').val();
-    //   let favAlbum = $(this.$el).find('.favAlbum').val();
-    //   let descript = $(this.$el).find('.descript').val();
-
-    //   let updatedBand = new BandModel({
-    //     Name: name,
-    //     imageUrl: image,
-    //     favoriteAlbum: favAlbum,
-    //     Description: descript
-    //   });
-
-    //   this.collection.update(updatedBand);
-    //   newBand.save().then(() => {
-    //     alert('Band updated.  Awesome Taste!');
-    //     this.navigate(`bandName`, {trigger: true});
-    //   });
+    // this.$el.on('click', '.back-button', (event) => {
+    //   let $button = $(event.currentTarget);
+    //   let route = $button.data('to');
+    //   this.navigate(route, {trigger: true});
     // });
 
     this.$el.on('click', '.add-button', (event) => {
@@ -142,12 +115,13 @@ export default Backbone.Router.extend({
   showHome() {
     this.showSpinner();
     this.collection.fetch().then(() => {
+
+    //OLD CODE TRANSLATED TO REACT:
       // this.$el.html(
       //   Home(
       //     this.collection.toJSON()
       //   )
       // );
-
     // this.$el.on('click', '.band-name-item', (event) => {
     //   let $div = $(event.currentTarget);
     //   let bandId = $div.data('band-id');
@@ -157,7 +131,7 @@ export default Backbone.Router.extend({
       let nativeElement = this.$el[0];
 
       ReactDom.render(
-        <ReactView 
+        <ReactHome 
           onBandSelect={id => this.navigate(`detail/${id}`, {trigger: true})} 
           data={this.collection.toJSON()}/>,
         nativeElement
@@ -176,6 +150,20 @@ export default Backbone.Router.extend({
   },
 
   showDetail(id) {
+
+    // let band = this.collection.get(id);
+
+    // let nativeElement = this.$el[0];
+
+    // if (band) {
+    //   ReactDom.render(
+    //     <ReactDetail />,
+    //   )
+    // } else {
+
+    // }
+
+    //OLD CODE TRANSLATED TO REACT:
     let band = this.collection.get(id);
 
     if (band) {
@@ -187,25 +175,6 @@ export default Backbone.Router.extend({
         this.$el.html( Detail( band.templateData()) );
       });
     }
-  },
-
-  // editBandProfile(id) {
-  //   let editBand = this.collection.get(id);
-
-  //   if (editBand) {
-  //     this.$el.html( Detail(editBand.templateData()) );
-  //   } else {
-  //     this.showSpinner();
-  //     band = this.collection.get({objectId: id});
-  //     band.fetch().then(() => {
-  //       this.$el.html( Detail( band.templateData()) );
-  //     });
-  //   }
-  // },
-
-  editBandProfile() {
-    this.showSpinner();
-    this.$el.html(Edit());
   },
 
   newBandProfile() {

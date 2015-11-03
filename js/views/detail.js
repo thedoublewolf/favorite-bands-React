@@ -1,11 +1,11 @@
 export default function(data, EditView) {
   return `
-    <div class="navbar">
-      <div class="button-home"></div>
-      <div class="button-newband"></div>
-      <div class="button-about"></div>
-      <div class="button-contact"></div>
-    </div>
+    // <div class="navbar">
+    //   <div class="button-home"></div>
+    //   <div class="button-newband"></div>
+    //   <div class="button-about"></div>
+    //   <div class="button-contact"></div>
+    // </div>
     <div class="app-container">
       <div class="band">
         <h1 class="name">${data.Name}</h1>
