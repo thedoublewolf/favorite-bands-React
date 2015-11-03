@@ -37,25 +37,25 @@ export default Backbone.Router.extend({
     this.$el = appElement;
     this.collection = new BandCollection();
 
-    this.$el.on('click', '.button-home', (event) => {
-      let $div = $(event.currentTarget);
-      this.navigate(`home`, {trigger: true});
-    });
+    // this.$el.on('click', '.button-home', (event) => {
+    //   let $div = $(event.currentTarget);
+    //   this.navigate(`home`, {trigger: true});
+    // });
 
-    this.$el.on('click', '.button-newband', (event) => {
-      let $div = $(event.currentTarget);
-      this.navigate(`addBandProfile`, {trigger: true});
-    });
+    // this.$el.on('click', '.button-newband', (event) => {
+    //   let $div = $(event.currentTarget);
+    //   this.navigate(`addBandProfile`, {trigger: true});
+    // });
 
-    this.$el.on('click', '.button-about', (event) => {
-      let $div = $(event.currentTarget);
-      this.navigate(`about`, {trigger: true});
-    });
+    // this.$el.on('click', '.button-about', (event) => {
+    //   let $div = $(event.currentTarget);
+    //   this.navigate(`about`, {trigger: true});
+    // });
 
-    this.$el.on('click', '.button-contact', (event) => {
-      let $div = $(event.currentTarget);
-      this.navigate(`contact`, {trigger: true});
-    });
+    // this.$el.on('click', '.button-contact', (event) => {
+    //   let $div = $(event.currentTarget);
+    //   this.navigate(`contact`, {trigger: true});
+    // });
 
     // this.$el.on('click', '.band-name-item', (event) => {
     //   let $div = $(event.currentTarget);
@@ -157,7 +157,7 @@ export default Backbone.Router.extend({
       let nativeElement = this.$el[0];
 
       ReactDom.render(
-        <ReactView 
+        <ReactView onNavigate={(route) => this.navigate(route, {trigger: true})}
           onBandSelect={id => this.navigate(`detail/${id}`, {trigger: true})} 
           data={this.collection.toJSON()}/>,
         nativeElement

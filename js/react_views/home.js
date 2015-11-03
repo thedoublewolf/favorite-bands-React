@@ -1,4 +1,5 @@
 import React from 'react';
+import Nav from './nav';
 
 export default React.createClass({
 
@@ -20,12 +21,19 @@ export default React.createClass({
     return data.map(this.processItem);
   },
 
+  navigateHandler(route) {
+
+    this.props.onNavigate(route);
+
+  },
+
   render() {
 
     let data = this.props.data;
 
     return (
       <div className="app-container">
+        <Nav onNavigate={this.navigateHandler}/>
         <div className="band-name">
           {this.processData(data)}
         </div>
